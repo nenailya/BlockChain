@@ -2,28 +2,16 @@ version: '3'
 services:
   node1:
     image: blockchain
-    container_name: firstnode
-    build:
-      context: .
-      dockerfile: Dockerfile
-    network_mode: host
-    volumes:
-      - .:/app
-      - ~/.m2:/root/.m2
+    container_name: first
+    build: .
     command: "node1 8000"
   node2:
     image: blockchain
-    container_name: secondnode
-    network_mode: host
+    container_name: second
+    build: .
     command: "node2 8001"
-    volumes:
-      - .:/app
-      - ~/.m2:/root/.m2
   node3:
     image: blockchain
-    container_name: thirdnode
-    network_mode: host
+    container_name: third
+    build: .
     command: "node3 8002"
-    volumes:
-      - .:/app
-      - ~/.m2:/root/.m2
